@@ -1,0 +1,43 @@
+<ion-view view-title="Eat Street">
+  <ion-content>
+      <style>
+      .box
+      {
+          position: absolute;
+          left: 30%;
+      }
+          
+          </style>
+      <div class="box">
+      <input type="text" id="CityName1" placeholder="City Name" ng-model="endlocation" />
+      <button id="btn_getReview" ng-click="getVenues();getWeatherEnd();">Search</button>
+      <div id="div_VenueList">
+                <h2> Top 5 Restaurants in {{cityEnd}} : </h2>
+                <ul style="font-size: large">
+
+                    <li ng-repeat="venue in venueList">
+<!--                        <a  href="" ng-click="getReviews(venue)">{{venue.name}}</a>-->
+                        {{venue.name}}
+                    </li>
+                </ul>
+
+            </div>
+      <div id="div_ReviewList" style="display:none;"  >
+
+
+          <p ng-model="ReviewWithSentiment">
+
+            <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue" COLSPAN=2 BGCOLOR="#445533">Sentiment Analysis From Using Alchemy API </TH> </TR>
+                <TR> <TD>Most recent review</TD> <TD>{{ReviewWithSentiment.reviewText}}</TD> </TR>
+                <TR> <TD>Sentiment of the review</TD> <TD>{{ReviewWithSentiment.sentiment}}</TD> </TR>
+                <TR> <TD>Sentiment Score of the review</TD> <TD>{{ReviewWithSentiment.score}}</TD> </TR>
+                <TR> <TH style="color: burlywood" COLSPAN=2 BGCOLOR="#445553">{{ReviewWithSentiment.reviewText}}</TH> </TR>
+            </TABLE>
+
+
+          </p>
+
+    </div>
+          </div>
+  </ion-content>
+</ion-view>
